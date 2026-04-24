@@ -19,14 +19,14 @@ router.delete('/:id', async (req, res) => {
 
 // POST - criar voluntário
 router.post('/', async (req, res) => {
-  const { nome, email, telefone, cpf } = req.body;
+  const { nome, email, telefone, cpf, sintese_id } = req.body;
 
-  const result = await pool.query(
-    `INSERT INTO voluntario (nome, email, telefone, cpf)
-     VALUES ($1, $2, $3, $4)
-     RETURNING *`,
-    [nome, email, telefone, cpf]
-  );
+const result = await pool.query(
+  `INSERT INTO voluntario (nome, email, telefone, cpf, sintese_id)
+   VALUES ($1, $2, $3, $4, $5)
+   RETURNING *`,
+  [nome, email, telefone, cpf, sintese_id]
+);
 
   res.json(result.rows[0]);
 });

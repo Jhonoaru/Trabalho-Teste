@@ -27,3 +27,10 @@ app.listen(PORT, () => {
 const voluntarioRoutes = require('./routes/voluntarioRoutes');
 
 app.use('/voluntarios', voluntarioRoutes);
+
+const authRoutes = require('./routes/authRoutes');
+
+app.use('/auth', authRoutes);
+
+const sinteseRoutes = require('./routes/sinteseRoutes');
+app.use('/sinteses', sinteseRoutes);
